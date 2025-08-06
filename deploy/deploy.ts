@@ -1,27 +1,11 @@
 import { Address, Deployer } from "../web3webdeploy/types";
-import { DeployCounterSettings, deployCounter } from "./counters/Counter";
-import {
-  DeployProxyCounterSettings,
-  deployProxyCounter,
-} from "./counters/ProxyCounter";
-import {
-  SetInitialCounterValueSettings,
-  setInitialCounterValue,
-} from "./counters/SetInitialCounterValue";
 
 export interface DeploymentSettings {
-  counterSettings: DeployCounterSettings;
-  proxyCounterSettings: Omit<DeployProxyCounterSettings, "counter">;
-  setInitialCounterValueSettings: Omit<
-    SetInitialCounterValueSettings,
-    "counter"
-  >;
   forceRedeploy?: boolean;
 }
 
 export interface Deployment {
-  counter: Address;
-  proxyCounter: Address;
+  tokenizedServerV1: Address;
 }
 
 export async function deploy(
@@ -30,34 +14,25 @@ export async function deploy(
 ): Promise<Deployment> {
   if (settings?.forceRedeploy !== undefined && !settings.forceRedeploy) {
     const existingDeployment = await deployer.loadDeployment({
-      deploymentName: "V1.json",
+      deploymentName: "OwnAIV1.json",
     });
     if (existingDeployment !== undefined) {
       return existingDeployment;
     }
   }
 
-  const counter = await deployCounter(
-    deployer,
-    settings?.counterSettings ?? {}
-  );
-  const proxyCounter = await deployProxyCounter(deployer, {
-    ...(settings?.proxyCounterSettings ?? {}),
-    counter: counter,
-  });
-  await setInitialCounterValue(deployer, {
-    ...(settings?.setInitialCounterValueSettings ?? {
-      counterValue: BigInt(3),
-    }),
-    counter: counter,
-  });
+  const tokenizedServerV1 = await deployer
+    .deploy({
+      id: "OpenxAITokenizedServerV1",
+      contract: "OpenxAITokenizedServerV1",
+    })
+    .then((deployment) => deployment.address);
 
   const deployment = {
-    counter: counter,
-    proxyCounter: proxyCounter,
+    tokenizedServerV1: tokenizedServerV1,
   };
   await deployer.saveDeployment({
-    deploymentName: "V1.json",
+    deploymentName: "OwnAIV1.json",
     deployment: deployment,
   });
   return deployment;
