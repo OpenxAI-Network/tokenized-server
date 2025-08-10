@@ -14,7 +14,7 @@ export async function deploy(
 ): Promise<Deployment> {
   if (settings?.forceRedeploy !== undefined && !settings.forceRedeploy) {
     const existingDeployment = await deployer.loadDeployment({
-      deploymentName: "OwnAIV1.json",
+      deploymentName: "CreditDeposit.json",
     });
     if (existingDeployment !== undefined) {
       return existingDeployment;
@@ -23,8 +23,8 @@ export async function deploy(
 
   const tokenizedServerV1 = await deployer
     .deploy({
-      id: "OpenxAITokenizedServerV1",
-      contract: "OpenxAITokenizedServerV1",
+      id: "OpenxAICreditDeposit",
+      contract: "OpenxAICreditDeposit",
     })
     .then((deployment) => deployment.address);
 
@@ -32,7 +32,7 @@ export async function deploy(
     tokenizedServerV1: tokenizedServerV1,
   };
   await deployer.saveDeployment({
-    deploymentName: "OwnAIV1.json",
+    deploymentName: "CreditDeposit.json",
     deployment: deployment,
   });
   return deployment;
