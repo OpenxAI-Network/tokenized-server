@@ -1,0 +1,27 @@
+{
+  "type": "function",
+  "id": "OpenxAITokenizedServerV1Minter",
+  "batch": "base-sepolia-ownaiv1",
+  "batchIndex": 1,
+  "functionName": "grantRole",
+  "functionArgs": [
+    "0xfdf81848136595c31bb5f76217767372bc4bf906663038eb38381131ea27ecba",
+    "0x3Fd1D3f2D21Ce04586ADf3A81202dBBEa6B5Ad2e"
+  ],
+  "to": "0x5d3a48B6f16Ba9a830b19B452d8DAA0409e0FE05",
+  "value": "0",
+  "data": "0x2f2ff15dfdf81848136595c31bb5f76217767372bc4bf906663038eb38381131ea27ecba0000000000000000000000003fd1d3f2d21ce04586adf3a81202dbbea6b5ad2e",
+  "gas": "51275",
+  "from": "0x3e166454c7781d3fD4ceaB18055cad87136970Ea",
+  "transactionSettings": {
+    "chainId": 84532,
+    "nonce": "1",
+    "baseFee": "1000067",
+    "priorityFee": "100000"
+  },
+  "source": "/home/plopmenz/git/openmesh/tokenized-server",
+  "submitted": {
+    "transactionHash": "0x065e42a74099ae08235023728e6139806bde543abc2422574bfea689f22d5e4f",
+    "date": "2025-08-11T13:43:00.725Z"
+  }
+}

@@ -28,6 +28,16 @@ export async function deploy(
     })
     .then((deployment) => deployment.address);
 
+  const minter = "0x3Fd1D3f2D21Ce04586ADf3A81202dBBEa6B5Ad2e";
+  await deployer.execute({
+    id: "OpenxAITokenizedServerV1Minter",
+    abi: "OpenxAITokenizedServerV1",
+    to: tokenizedServerV1,
+    function: "grantRole",
+    args: [deployer.viem.keccak256(deployer.viem.toBytes("MINT")), minter],
+    from: "0x3e166454c7781d3fD4ceaB18055cad87136970Ea",
+  });
+
   const deployment = {
     tokenizedServerV1: tokenizedServerV1,
   };

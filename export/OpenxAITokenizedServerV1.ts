@@ -1,5 +1,5 @@
 export const OpenxAITokenizedServerV1Contract = {
-  address: "0x1962d34E472E205Bf504Aa305A375c8895Eaf9b4",
+  address: "0x5d3a48B6f16Ba9a830b19B452d8DAA0409e0FE05",
   abi: [
     { type: "constructor", inputs: [], stateMutability: "nonpayable" },
     {
@@ -89,7 +89,7 @@ export const OpenxAITokenizedServerV1Contract = {
       name: "mint",
       inputs: [
         { name: "account", type: "address", internalType: "address" },
-        { name: "amount", type: "uint256", internalType: "uint256" },
+        { name: "tokenId", type: "uint256", internalType: "uint256" },
       ],
       outputs: [],
       stateMutability: "nonpayable",

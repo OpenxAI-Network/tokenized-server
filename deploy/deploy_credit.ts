@@ -5,7 +5,7 @@ export interface DeploymentSettings {
 }
 
 export interface Deployment {
-  tokenizedServerV1: Address;
+  creditDeposit: Address;
 }
 
 export async function deploy(
@@ -21,7 +21,7 @@ export async function deploy(
     }
   }
 
-  const tokenizedServerV1 = await deployer
+  const creditDeposit = await deployer
     .deploy({
       id: "OpenxAICreditDeposit",
       contract: "OpenxAICreditDeposit",
@@ -29,7 +29,7 @@ export async function deploy(
     .then((deployment) => deployment.address);
 
   const deployment = {
-    tokenizedServerV1: tokenizedServerV1,
+    creditDeposit: creditDeposit,
   };
   await deployer.saveDeployment({
     deploymentName: "CreditDeposit.json",

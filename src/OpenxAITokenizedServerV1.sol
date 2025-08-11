@@ -14,8 +14,8 @@ contract OpenxAITokenizedServerV1 is ERC721, AccessControl {
     _grantRole(DEFAULT_ADMIN_ROLE, ADMIN);
   }
 
-  function mint(address account, uint256 amount) external onlyRole(MINT_ROLE) {
-    _mint(account, amount);
+  function mint(address account, uint256 tokenId) external onlyRole(MINT_ROLE) {
+    _mint(account, tokenId);
   }
 
   function updateMetadata(
