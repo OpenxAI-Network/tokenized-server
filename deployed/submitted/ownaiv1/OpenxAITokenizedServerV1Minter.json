@@ -1,0 +1,27 @@
+{
+  "type": "function",
+  "id": "OpenxAITokenizedServerV1Minter",
+  "batch": "ownaiv1",
+  "batchIndex": 1,
+  "functionName": "grantRole",
+  "functionArgs": [
+    "0xfdf81848136595c31bb5f76217767372bc4bf906663038eb38381131ea27ecba",
+    "0x3Fd1D3f2D21Ce04586ADf3A81202dBBEa6B5Ad2e"
+  ],
+  "to": "0x5d3a48B6f16Ba9a830b19B452d8DAA0409e0FE05",
+  "value": "0",
+  "data": "0x2f2ff15dfdf81848136595c31bb5f76217767372bc4bf906663038eb38381131ea27ecba0000000000000000000000003fd1d3f2d21ce04586adf3a81202dbbea6b5ad2e",
+  "gas": "51275",
+  "from": "0x3e166454c7781d3fD4ceaB18055cad87136970Ea",
+  "transactionSettings": {
+    "chainId": 8453,
+    "nonce": "5",
+    "baseFee": "4491959",
+    "priorityFee": "10000"
+  },
+  "source": "/home/plopmenz/git/openmesh/tokenized-server",
+  "submitted": {
+    "transactionHash": "0xa0b843ed6f7792d5deb96dee2cc916dc7f364f04f2ed994064bbd25fea3be520",
+    "date": "2025-09-10T10:27:59.000Z"
+  }
+}

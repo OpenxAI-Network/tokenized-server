@@ -1,5 +1,5 @@
 export const OpenxAICreditDepositContract = {
-  address: "0x1EdE9dE47e5E3B8941884e7f5DDa43D82570180D",
+  address: "0x0DA956C8865633AC2E7f02d935EBa495Aae63598",
   abi: [
     { type: "constructor", inputs: [], stateMutability: "nonpayable" },
     {
@@ -25,10 +25,10 @@ export const OpenxAICreditDepositContract = {
     },
     {
       type: "function",
-      name: "retrieve_erc20",
+      name: "retrieve",
       inputs: [
         { name: "_token", type: "address", internalType: "contract IERC20" },
-        { name: "_receiver", type: "address", internalType: "address" },
+        { name: "_receiver", type: "address", internalType: "address payable" },
         { name: "_amount", type: "uint256", internalType: "uint256" },
       ],
       outputs: [],
@@ -59,6 +59,15 @@ export const OpenxAICreditDepositContract = {
         },
       ],
       anonymous: false,
+    },
+    { type: "error", name: "FailedCall", inputs: [] },
+    {
+      type: "error",
+      name: "InsufficientBalance",
+      inputs: [
+        { name: "balance", type: "uint256", internalType: "uint256" },
+        { name: "needed", type: "uint256", internalType: "uint256" },
+      ],
     },
     {
       type: "error",
